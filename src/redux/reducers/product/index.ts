@@ -1,23 +1,21 @@
 import { ProductsType } from "../../actions";
 import * as types from "../../types";
 
-export interface UserState {
-  user: ProductsType;
+export interface DataState {
+  data: ProductsType;
   loading: boolean;
   error: string;
 }
 
-const initialState: UserState = {
-  user: {
-    description: "",
-    name: "",
-    price: '',
+const initialState: DataState = {
+  data: {
+    products:[]
   },
   loading: false,
   error: "",
 };
 
-export const userReducer = (
+export const dataReducer = (
   state = initialState,
   action: {
     type: string;
@@ -29,14 +27,14 @@ export const userReducer = (
       return {
         ...state,
         loading: true,
-        user: action.payload,
+        data: action.payload,
         error: ''
       };
     case types.GET_PRODUCTS_SUCCESS:
       return {
         ...state,
         loading: false,
-        user: action.payload,
+        data: action.payload,
         error: ''
       };
     case types.GET_PRODUCTS_FAILURE:

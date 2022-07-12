@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, getProductsRequest, RootState } from "./redux";
-import { UserState } from "./redux/reducers/user";
+import { DataState } from "./redux/reducers/product";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 export const useAppDispatch = () => useDispatch<AppDispatch>()
 
-export interface UserStateItem {
+export interface DataStateItem {
+  id: number;
   name: string;
 }
 
@@ -14,30 +15,34 @@ function App() {
   
 
   const dispatch = useAppDispatch()
-  const userState: UserState = useAppSelector(state => state.user)
-  const [name, setName] = useState('')
+  const dataState: DataState = useAppSelector(state => state.data)
   const [data, setData] = useState([] as any)
 
 
-  const handleUser = () => {
-    dispatch(getProductsRequest(name))
+  const handleData = () => {
+   dispatch(getProductsRequest())
   } 
+  
+  useEffect(()=>{
+    handleData()
+  },[])
 
   useEffect(() => {
-    const xx = userState.user.products; 
-    setData(xx)
+    const products = dataState?.data?.products; 
+    setData(products)
     console.log(data)   
-  }, [userState])
-  
+    console.log(dataState)   
+  }, [dataState])
   
   
 
   return (
     <>
-      {data?.map((item:UserStateItem)=>(
-        <h1>{item.name}</h1>
+      {data?.map((item:DataStateItem)=>(
+        
+        <h1 key={item.id}>{item.name}</h1>
       ))}
-      <button onClick={handleUser}>User Request</button>
+      <button onClick={handleData}>User Request</button>
     </>
   );
 }

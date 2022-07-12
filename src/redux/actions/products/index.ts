@@ -1,19 +1,14 @@
 import * as types from '../../types'
 
 export type ProductsType = {
-    name: string
-    description: string
-    price: string
     products?: object
 }
 
-export function getProductsRequest(name: string): {
+export function getProductsRequest(): {
     type: string
-    payload: string
 } {
     return {
         type: types.GET_PRODUCTS_REQUEST,
-        payload: name
     }
 }
 export function getProductsSuccess(product: ProductsType): {
