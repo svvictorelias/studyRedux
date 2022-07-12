@@ -1,8 +1,8 @@
-import { UserType } from "../../actions";
+import { ProductsType } from "../../actions";
 import * as types from "../../types";
 
 export interface UserState {
-  user: UserType;
+  user: ProductsType;
   loading: boolean;
   error: string;
 }
@@ -21,7 +21,7 @@ export const userReducer = (
   state = initialState,
   action: {
     type: string;
-    payload: UserType;
+    payload: ProductsType;
   }
 ) => {
   switch (action.type) {

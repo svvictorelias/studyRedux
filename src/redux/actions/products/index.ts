@@ -1,6 +1,6 @@
 import * as types from '../../types'
 
-export type UserType = {
+export type ProductsType = {
     name: string
     description: string
     price: string
@@ -16,18 +16,18 @@ export function getUserRequest(name: string): {
         payload: name
     }
 }
-export function getUserSuccess(user: UserType): {
+export function getUserSuccess(user: ProductsType): {
     type: string
-    payload: UserType
+    payload: ProductsType
 } {
     return {
         type: types.GET_USER_SUCCESS,
         payload: user
     }
 }
-export function getUserFailure(user: UserType): {
+export function getUserFailure(user: ProductsType): {
     type: string
-    payload: UserType
+    payload: ProductsType
 } {
     return {
         type: types.GET_USER_FAILURE,

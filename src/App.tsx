@@ -34,13 +34,10 @@ function App() {
 
   return (
     <>
-      {/* <h1>User {userState.user.description} - {userState.user.name} - {userState.user.price}</h1> */}
       {data?.map((item:UserStateItem)=>(
-        // console.log(item)
         <h1>{item.name}</h1>
       ))}
-      <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-      <button onClick={handleUser} disabled={!name.length}>User Request</button>
+      <button onClick={handleUser}>User Request</button>
     </>
   );
 }
