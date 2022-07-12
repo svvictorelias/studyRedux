@@ -7,30 +7,30 @@ export type ProductsType = {
     products?: object
 }
 
-export function getUserRequest(name: string): {
+export function getProductsRequest(name: string): {
     type: string
     payload: string
 } {
     return {
-        type: types.GET_USER_REQUEST,
+        type: types.GET_PRODUCTS_REQUEST,
         payload: name
     }
 }
-export function getUserSuccess(user: ProductsType): {
+export function getProductsSuccess(product: ProductsType): {
     type: string
     payload: ProductsType
 } {
     return {
-        type: types.GET_USER_SUCCESS,
-        payload: user
+        type: types.GET_PRODUCTS_SUCCESS,
+        payload: product
     }
 }
-export function getUserFailure(user: ProductsType): {
+export function getProductsFailure(product: ProductsType): {
     type: string
     payload: ProductsType
 } {
     return {
-        type: types.GET_USER_FAILURE,
-        payload: user
+        type: types.GET_PRODUCTS_FAILURE,
+        payload: product
     }
 }

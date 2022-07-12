@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects'
-import { getUserFailure, getUserSuccess, ProductsType } from '../../actions'
+import { getProductsFailure, getProductsSuccess, ProductsType } from '../../actions'
 import * as types from '../../types'
 
 let userApi: ProductsType
@@ -17,10 +17,10 @@ const userRequest = async (name: string) => {
 export function* userData(action: { type: string, payload: string }) {
     try {
         yield call(userRequest, action.payload)
-        yield put(getUserSuccess(userApi))
+        yield put(getProductsSuccess(userApi))
     } catch (error) {
-        yield put(getUserFailure(userApi))
+        yield put(getProductsFailure(userApi))
     }
 }
 
-export default all([takeLatest(types.GET_USER_REQUEST, userData)])
+export default all([takeLatest(types.GET_PRODUCTS_REQUEST, userData)])

@@ -25,21 +25,21 @@ export const userReducer = (
   }
 ) => {
   switch (action.type) {
-    case types.GET_USER_REQUEST:
+    case types.GET_PRODUCTS_REQUEST:
       return {
         ...state,
         loading: true,
         user: action.payload,
         error: ''
       };
-    case types.GET_USER_SUCCESS:
+    case types.GET_PRODUCTS_SUCCESS:
       return {
         ...state,
         loading: false,
         user: action.payload,
         error: ''
       };
-    case types.GET_USER_FAILURE:
+    case types.GET_PRODUCTS_FAILURE:
       return {
         ...state,
         loading: false,

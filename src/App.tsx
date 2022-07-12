@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { AppDispatch, getUserRequest, RootState } from "./redux";
+import { AppDispatch, getProductsRequest, RootState } from "./redux";
 import { UserState } from "./redux/reducers/user";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
@@ -20,7 +20,7 @@ function App() {
 
 
   const handleUser = () => {
-    dispatch(getUserRequest(name))
+    dispatch(getProductsRequest(name))
   } 
 
   useEffect(() => {
